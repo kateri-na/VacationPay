@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Калькулятор отпускных</title>
 </head>
 <body>
-Калькулятор отпускных!!!!
+<h1>Калькулятор отпускных</h1>
+
+<form method="GET" th:action="@{/calculate}">
+    <label for="yearAverageSalary">Введите среднюю зарплату за 12 месяцев: </label>
+    <input type="text" name="yearAverageSalary" id="yearAverageSalary"/>
+    <br/>
+    <label for="numberOfVacationDays">Введите количество дней отпуска: </label>
+    <input type="text" name="numberOfVacationDays" id="numberOfVacationDays"/>
+    <br/>
+    <input type="submit" value="Рассчитать!"/>
+</form>
+
+<div th:if="${vacationPay}">
+    <span>Сумма ваших отпускных: </span><span th:text="${vacationPay}">vacationPay</span>
+</div>
 </body>
 </html>
