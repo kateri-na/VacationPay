@@ -14,10 +14,18 @@
     <label for="numberOfVacationDays">Введите количество дней отпуска: </label>
     <input type="text" name="numberOfVacationDays" id="numberOfVacationDays"/>
     <br/>
+    <hr/>
+    <label for="startOfVacation">Введите дату начала отпуска: </label>
+    <input type="date" name="startOfVacation" id="startOfVacation"/>
+    <br/>
+    <label for="endOfVacation">Введите дату окончания отпуска: </label>
+    <input type="date" name="endOfVacation" id="endOfVacation"/>
+    <hr/>
     <input type="submit" value="Рассчитать!"/>
 </form>
 
-<div th:if="${vacationPay}">
+<div th:if="${vacationPay != null}">
+    <hr/>
     <span>Сумма ваших отпускных: </span><span th:text="${vacationPay}">vacationPay</span>
 </div>
 </body>
